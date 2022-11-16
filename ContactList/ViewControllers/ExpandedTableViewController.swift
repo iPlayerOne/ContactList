@@ -9,12 +9,11 @@ import UIKit
 
 class ExpandedTableViewController: UITableViewController {
     
-    var contacts: [Person]!
+    var contacts: [Person] = []
     
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        
         return contacts.count
     }
     
@@ -24,8 +23,7 @@ class ExpandedTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int ) -> String? {
-        
-        "\(contacts[section].name ?? "Ivan") \(contacts[section].surname ?? "Ivanovich")"
+        contacts[section].fullName
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -34,13 +32,19 @@ class ExpandedTableViewController: UITableViewController {
         var content = cell.defaultContentConfiguration()
         switch indexPath.row {
             case 0:
-                content.image = UIImage.init(systemName: "phone")
                 content.text = contact.phoneNumber
+                content.image = UIImage.init(systemName: "phone")
             default:
-                content.image = UIImage.init(systemName: "at")
                 content.text = contact.eMail
+                content.image = UIImage.init(systemName: "at")
         }
+        
         cell.contentConfiguration = content
+        
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

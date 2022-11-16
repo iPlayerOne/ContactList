@@ -9,7 +9,7 @@ import UIKit
 
 class ContactsTableViewController: UITableViewController {
     
-    var contacts: [Person]!
+    var contacts: [Person] = []
     
     
     // MARK: - Table view data source
@@ -20,11 +20,12 @@ class ContactsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "contacts", for: indexPath)
-        
         let contact = contacts[indexPath.row]
         var content = cell.defaultContentConfiguration()
-        content.text = "\(contact.name ?? "Ivan")  \(contact.surname ?? "Ivan")"
+        
+        content.text = contact.fullName
         cell.contentConfiguration = content
+        
         return cell
     }
     

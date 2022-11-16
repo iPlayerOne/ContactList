@@ -9,6 +9,8 @@ import Foundation
 
 class DataStore {
     
+    static let shared = DataStore()
+    
     let names = [
         "Peter",
         "Kot",
@@ -21,6 +23,7 @@ class DataStore {
         "Tim",
         "Last"
     ]
+    
     let surnames = [
         "Petrovich",
         "Kotovich",
@@ -33,6 +36,7 @@ class DataStore {
         "Apple",
         "Chance"
     ]
+    
     let phoneNumbers = [
         "0001112223",
         "0011122233",
@@ -45,6 +49,7 @@ class DataStore {
         "2333444555",
         "3334445556"
     ]
+    
     let eMails = [
         "peter92@mmail.co",
         "whiskasbeaches@hellokitty.hk",

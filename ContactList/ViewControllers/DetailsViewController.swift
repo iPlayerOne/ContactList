@@ -9,9 +9,6 @@ import UIKit
 
 class DetailsViewController: UIViewController {
     
-    @IBOutlet var name: UILabel!
-    @IBOutlet var surname: UILabel!
-    
     @IBOutlet var phoneNumber: UILabel!
     @IBOutlet var email: UILabel!
     
@@ -19,10 +16,9 @@ class DetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        name.text = contacts.name
-        surname.text = contacts.surname
-        phoneNumber.text = contacts.phoneNumber
-        email.text = contacts.eMail
+        title = contacts.fullName
+        phoneNumber.text = "Phone: \(contacts.phoneNumber)"
+        email.text = "eMail: \(contacts.eMail)"
         
     }
 }

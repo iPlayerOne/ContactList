@@ -13,13 +13,16 @@ class RootViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Когда узнал что сиги в ТабБарКонтроллере не настоящие 😣
-        
+        setupVC()
+    }
+    
+    private func setupVC() {
         guard let contactsVC = self.viewControllers?.first as? ContactsTableViewController else {return}
-        contactsVC.contacts = contacts
         guard let expandedVC = self.viewControllers?.last as? ExpandedTableViewController else { return }
-        expandedVC.contacts = contacts
         
+        let contacts = Person.getPersonList()
+        contactsVC.contacts = contacts
+        expandedVC.contacts = contacts
     }
 }
 
